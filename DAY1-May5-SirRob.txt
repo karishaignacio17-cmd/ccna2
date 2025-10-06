@@ -246,9 +246,9 @@ ephone-dn 7
 ephone-dn 8
   number 8188
  ephone-dn 9
-   number 8199
+   number 8117
 ephone-dn 10
- number 8198
+ number 8126
 Ephone 1
   Mac-address ccd8.c1fb.163f
   type 8945
@@ -257,7 +257,7 @@ Ephone 1
 Ephone 2
   Mac-address ccd8.c1fa.dd39
   type 8945
-  button 1:4 2:3 3:2 4:1
+  button 1:4 2:3 3:2 4:10
   restart  
 end
 
@@ -340,10 +340,10 @@ dial-peer voice 72 Voip
  destination-pattern 72..
  session target ipv4:10.72.100.8
  codec g711ULAW
-dial-peer voice 81 Voip
- destination-pattern 81..
- session target ipv4:10.81.100.8
- codec g711ULAW
+!dial-peer voice 81 Voip
+ !destination-pattern 81..
+ !session target ipv4:10.81.100.8
+ !codec g711ULAW
 dial-peer voice 82 Voip
  destination-pattern 82..
  session target ipv4:10.82.100.8
@@ -386,6 +386,7 @@ siib: sh ip int brief
 sirc: sh ip route connected
 @EDGE:
 config t
+no router ospf 1
 router ospf 1
 router-id 81.0.0.1
 network 200.0.0.0  0.0.0.255 area 0
@@ -397,6 +398,7 @@ end
 
 @CoreBABA:
 config t
+no router ospf 1
 router ospf 1
 router-id 10.81.81.4
 network 10.81.0.0  0.0.255.255 area 0
@@ -406,11 +408,31 @@ end
 
 @CUCM:
 config t
+no router ospf 1
 router ospf 1
 router-id 10.81.100.8
 network 10.81.100.0  0.0.0.255  area 0
 end
 
+
+
+
+
+
+EXAM READY DAY 1 : NAT, NTP, DHCP AND SSH
+NAT: NETWORK ADDRESS TRANSLATION (BIGYAN NG INTERNET SA MUNDO NI CISCO)
+config t
+ip route 0.0.0.0 0.0.0. 200.0.0.1
+access-list 1 permit Any
+int gi 0/0/1
+ip nat outside
+int gi 0/0/0
+ip nat inside 
+ip nat inside source list 1 interface gi 0/0/1 Overload
+
+NTP: NETWOKR TIME PROTOCOL
+DHCP:
+SSH: SECURE SHELL
 
  !!!STATIC ROUTING FOR MININUM WAGERS: 645php/day
  !!! EDGE route NOT dikit to ClassMate:
@@ -643,6 +665,7 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
 
 
 
