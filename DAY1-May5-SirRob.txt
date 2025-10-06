@@ -133,9 +133,9 @@ vlan 10
 vlan 50
    name IPCCTVLAN
 vlan 69
-   name UPPERMGMT
+   name DELETEME
 vlan 70
-    name ACCOUNTING
+    name SELLME
 vlan 71
     name HR
 vlan 100
@@ -643,4 +643,5 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
 
