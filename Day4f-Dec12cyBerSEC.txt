@@ -292,12 +292,12 @@ voice service voip
    registrar server expires max 600 min 60
  voice register global
   mode cme
-  source-address 192.168.102.11 port 5060
+  source-address 192.168.103.11 port 5060
   max-dn 12
   max-pool 12
 !Make Ping EASY
-ip host www.web310.com 192.168.103.10
-ip host www.web311.com 192.168.103.11
+ip host bet10.com 192.168.103.10
+ip host bet11.com 192.168.103.11
 ip host pc 10.m.1.10
 ip host cm 10.m.100.8
 ip host cm2 10.m.100.9
@@ -320,6 +320,8 @@ Top 5 UTM: 1.FortinetFortigate: syet
            2. Checkpoint
            3.4 Cisco/Fortinet
            4. sophos/Mahirap Ka.
+
+
 
 Firewall Profile no.1: use ExtendedACL vs NamedExtendedAcl:
 ex.1: you are the Blue Team/SOC guys for pogo sites:
@@ -1082,6 +1084,7 @@ https:///restconf/data/Cisco-IOS-XE-native:native/interface/Loopback
 
 HomeWork for the Hardest Day in CCNA: 
 CSr, linuxdocker, pythondocker, Postman: RestApi.
+
 
 
 
